@@ -13,11 +13,11 @@ const userInfo = computed(() => userStore.userInfo)
 <template>
   <div class="flex items-center overflow-hidden">
     <div class="w-10 h-10 overflow-hidden rounded-full shrink-0">
-      <template v-if="isString(userInfo.avatar) && userInfo.avatar.length > 0">
+      <template v-if="userInfo.name">
         <NAvatar
           size="large"
           round
-          :src="userInfo.avatar"
+          :src="defaultAvatar"
           :fallback-src="defaultAvatar"
         />
       </template>
@@ -27,7 +27,7 @@ const userInfo = computed(() => userStore.userInfo)
     </div>
     <div class="flex-1 min-w-0 ml-2">
       <h2 class="overflow-hidden font-bold text-md text-ellipsis whitespace-nowrap">
-        {{ userInfo.name ?? 'ChenZhaoYu' }}
+        {{ userInfo.name ?? 'Leelei' }}
       </h2>
       <p class="overflow-hidden text-xs text-gray-500 text-ellipsis whitespace-nowrap">
         <span
